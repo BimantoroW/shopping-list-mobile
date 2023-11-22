@@ -1,16 +1,5 @@
 # shopping_list
 
-A new Flutter project.
+[![Build status](https://build.appcenter.ms/v0.1/apps/a9de6dcc-c59d-4f6d-9344-86d1db148ea7/branches/main/badge)](https://appcenter.ms)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Link aplikasi](https://install.appcenter.ms/orgs/komunitaspemancingdepok/apps/shopping-list/distribution_groups/public)
