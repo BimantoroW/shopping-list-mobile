@@ -64,15 +64,17 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () async {
                 String username = _usernameController.text;
                 String password = _passwordController.text;
-                final response =
-                    await request.login("http://bimantoro-widyadana-tutorial.pbp.cs.ui.ac.id/auth/login/", {
-                  'username': username,
-                  'password': password,
-                });
+                final response = await request.login(
+                    "https://bimantoro-widyadana-tutorial.pbp.cs.ui.ac.id/auth/login/",
+                    {
+                      'username': username,
+                      'password': password,
+                    });
 
                 if (request.loggedIn) {
                   String message = response['message'];
                   String uname = response['username'];
+                  if (!mounted) return;
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => MyHomePage()),
@@ -82,6 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                     ..showSnackBar(SnackBar(
                         content: Text("$message Selamat datang, $uname.")));
                 } else {
+                  if (!mounted) return;
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(

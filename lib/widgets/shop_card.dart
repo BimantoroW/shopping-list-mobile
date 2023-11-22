@@ -40,10 +40,11 @@ class ShopCard extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const ProductPage()));
           } else if (item.name == "Logout") {
             final response = await request.logout(
-                "http://bimantoro-widyadana-tutorial.pbp.cs.ui.ac.id/auth/logout/");
+                "https://bimantoro-widyadana-tutorial.pbp.cs.ui.ac.id/auth/logout/");
             String message = response["message"];
             if (response['status']) {
               String uname = response["username"];
+              if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text("$message Sampai jumpa, $uname."),
               ));
@@ -52,6 +53,7 @@ class ShopCard extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const LoginPage()),
               );
             } else {
+              if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text(message),
               ));

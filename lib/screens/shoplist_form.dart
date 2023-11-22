@@ -122,22 +122,25 @@ class _ShopFormPageState extends State<ShopFormPage> {
                     if (_formKey.currentState!.validate()) {
                       // Kirim ke Django dan tunggu respons
                       final response = await request.postJson(
-                          "http://bimantoro-widyadana-tutorial.pbp.cs.ui.ac.id/create-flutter/",
+                          "https://bimantoro-widyadana-tutorial.pbp.cs.ui.ac.id/create-flutter/",
                           jsonEncode(<String, String>{
                             'name': _name,
                             'price': _price.toString(),
                             'description': _description,
                           }));
                       if (response['status'] == 'success') {
+                        if (!mounted) return;
                         ScaffoldMessenger.of(context)
                             .showSnackBar(const SnackBar(
                           content: Text("Produk baru berhasil disimpan!"),
                         ));
+                        if (!mounted) return;
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) => MyHomePage()),
                         );
                       } else {
+                        if (!mounted) return;
                         ScaffoldMessenger.of(context)
                             .showSnackBar(const SnackBar(
                           content:
