@@ -5,10 +5,10 @@ import 'package:shopping_list/models/product.dart';
 import 'package:shopping_list/widgets/left_drawer.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage({Key? key}) : super(key: key);
+  const ProductPage({super.key});
 
   @override
-  _ProductPageState createState() => _ProductPageState();
+  State<ProductPage> createState() => _ProductPageState();
 }
 
 class _ProductPageState extends State<ProductPage> {
@@ -23,13 +23,13 @@ class _ProductPageState extends State<ProductPage> {
     var data = jsonDecode(utf8.decode(response.bodyBytes));
 
     // melakukan konversi data json menjadi object Product
-    List<Product> list_product = [];
+    List<Product> listProduct = [];
     for (var d in data) {
       if (d != null) {
-        list_product.add(Product.fromJson(d));
+        listProduct.add(Product.fromJson(d));
       }
     }
-    return list_product;
+    return listProduct;
   }
 
   @override
